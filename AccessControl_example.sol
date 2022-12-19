@@ -24,12 +24,16 @@ contract AccessControl {
 
 
     }
+    
 
-    //custom function not openzeppelin's function
-    function transfer(address to, uint256 tokens) public {
+    function transfer_(address to, uint256 tokens) public {
         balance_[msg.sender] -= tokens;
         balance_[to] += tokens;
 
+    }
+
+    function balanceOf() public view returns(uint256) {
+        return balance_[msg.sender];
     }
 
     function totalSupply() public view returns(uint256){
