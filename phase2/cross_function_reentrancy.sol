@@ -13,14 +13,14 @@ contract Cross_function{
       amount=amount * 1e18;
       if (balances[msg.sender] >= amount) {
         payable(to).send(amount);
-        // balances[to] += amount;
-        // balances[msg.sender] -= amount;
+        balances[to] += amount;
+        balances[msg.sender] -= amount;
       
   }
     }
 
   
-  function withdraw2() public {
+  function withdraw() public {
           uint bal = balances[msg.sender];
           require(bal > 0);
 
